@@ -33,3 +33,8 @@ $( "#create-event-form" ).submit(function( event ) {
   }
   console.log(data);
 });
+
+//Refresh Event
+$('#refresh-events').click(function(event){
+  alert("I am the refresh click Event!!!!!!!!!!!!");
+});

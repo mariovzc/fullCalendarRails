@@ -1,24 +1,19 @@
-# README
+# fullCalendarRails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Full Calendar Example in Rails 5.0.0
+ - Only Ajax Request
+- JQUERY
+- Materialize CSS
+### Todos
 
-Things you may want to cover:
+ - Write Tests
+ - Fix Modals Problems
+- MongoDB
 
-* Ruby version
+License
+----
 
-* System dependencies
+MIT
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Free Software, Hell Yeah!**

@@ -1,7 +1,5 @@
 $(document).ready(function() {
-  $('#calendar').fullCalendar({
-    //events: <%= @events.to_json.html_safe %
-  });
+  Event.list();
   $('.modal-trigger').leanModal();
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
@@ -36,5 +34,18 @@ $( "#create-event-form" ).submit(function( event ) {
 
 //Refresh Event
 $('#refresh-events').click(function(event){
-  alert("I am the refresh click Event!!!!!!!!!!!!");
+  Event.list();
 });
+
+//List events
+var Event ={
+  list: function(){
+    $.get( url_formatted() + "/events", function(data, status){
+      $('#calendar').html("");
+      $('#calendar').fullCalendar({
+        events: data
+      });
+
+    });
+  }
+}

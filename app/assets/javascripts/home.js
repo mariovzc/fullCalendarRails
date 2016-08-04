@@ -29,7 +29,7 @@ $( "#create-event-form" ).submit(function( event ) {
   var data = {
     "event" : $(this).serializeObject()
   }
-  console.log(data);
+  Event.save(data);
 });
 
 //Refresh Event
@@ -45,7 +45,29 @@ var Event ={
       $('#calendar').fullCalendar({
         events: data
       });
-
     });
+  },
+  save: function(data){
+    $.ajax({
+			type: "POST",
+			url: url_formatted()+ "/events",
+			contentType: "application/json; charset=UTF8",
+			dataType: "json",
+			data: JSON.stringify(data),
+			async: false,
+			Accept : "application/json; text/plain; charset=utf-8",
+			success: function(result,xhr) {
+        alert("Event Saved");
+        Event.list();
+        $('#create-modal').closeModal();
+        $('#create-event-form').trigger("reset");
+
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+        alert("Error");
+			}
+		}).fail( function( jqXHR, textStatus, errorThrown ) {
+      alert("Error");
+		});
   }
 }
